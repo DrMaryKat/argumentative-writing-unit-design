@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4: Argumentative Writing with Ethical Reasoning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        function showResourceContent(resourceType) {
+            // Remove any existing resource content
+            const existingContent = document.querySelectorAll('.resource-detail-content');
+            existingContent.forEach(content => content.remove());
+            
+            // Create new resource content div
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'resource-detail-content';
+            contentDiv.style.cssText = 'margin-top: 30px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);';
+            
+            if (resourceType === 'reading-supports') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">📚 Reading Supports</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Vocabulary Guides</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Digital Privacy Vocabulary:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Surveillance Capitalism:</strong> Business model based on commodifying personal data for advertising revenue</li>
+                                <li><strong>Data Mining:</strong> Process of discovering patterns in large datasets</li>
+                                <li><strong>Algorithmic Bias:</strong> Systematic errors in AI systems that create unfair outcomes</li>
+                                <li><strong>GDPR:</strong> General Data Protection Regulation - European privacy law</li>
+                                <li><strong>Anonymization:</strong> Process of removing personally identifiable information from data</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Annotation Templates</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Use these symbols while reading:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>📍 = Main argument or thesis</li>
+                                <li>🔍 = Key evidence or example</li>
+                                <li>❓ = Something I don't understand</li>
+                                <li>💭 = My thoughts or reactions</li>
+                                <li>⚖️ = Connects to STEP framework</li>
+                                <li>🔗 = Links to other reading</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Reading Comprehension Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Before Reading:</strong> Preview headings, read the conclusion first, identify the publication source</p>
+                            <p><strong>During Reading:</strong> Pause after each section to summarize, ask "What is the author trying to convince me of?"</p>
+                            <p><strong>After Reading:</strong> Write a 3-sentence summary, identify one point you agree with and one you question</p>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'step-tools') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">🎯 STEP Framework Tools</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Stakeholder Mapping Template</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Use this framework to identify all affected parties:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Direct Stakeholders:</strong> Who is immediately affected?</li>
+                                <li><strong>Indirect Stakeholders:</strong> Who experiences secondary effects?</li>
+                                <li><strong>Powerful Stakeholders:</strong> Who has decision-making authority?</li>
+                                <li><strong>Vulnerable Stakeholders:</strong> Who has the least power but may be most affected?</li>
+                                <li><strong>Future Stakeholders:</strong> How might this affect future generations?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Trade-offs Analysis Guide</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Common competing values in ethical dilemmas:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Individual Freedom vs. Collective Security</li>
+                                <li>Innovation vs. Caution</li>
+                                <li>Efficiency vs. Equity</li>
+                                <li>Present Benefits vs. Future Risks</li>
+                                <li>Transparency vs. Privacy</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Additional Practice Scenarios</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Apply STEP to these issues:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Should social media platforms fact-check posts?</li>
+                                <li>Should AI be used in hiring decisions?</li>
+                                <li>Should genetic testing be required for insurance?</li>
+                                <li>Should cities use facial recognition for security?</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'writing-supports') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">✍️ Writing Supports</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Thesis Development Guide</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Strong Argumentative Thesis Formula:</strong></p>
+                            <p style="background: #e3f2fd; padding: 10px; border-radius: 5px; font-family: monospace;">
+                            "While [acknowledge complexity/opposing view], [your position] because [reason 1], [reason 2], and [reason 3]."
+                            </p>
+                            <p><strong>Example:</strong> "While data collection does enable important medical advances, society should prioritize stronger privacy protections because current data practices lack meaningful consent, create power imbalances, and threaten democratic participation."</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Evidence Integration Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>The Quote Sandwich Method:</strong></p>
+                            <ol style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Introduce:</strong> Set up the quote with context</li>
+                                <li><strong>Quote:</strong> Include the exact words (keep it brief)</li>
+                                <li><strong>Explain:</strong> Tell readers why this quote matters to your argument</li>
+                            </ol>
+                            <p><strong>Example:</strong> Véliz argues that privacy is fundamentally about power dynamics. She writes, "Data is not the new oil; it's the new plutonium" (Véliz 2021). This metaphor emphasizes that unlike oil, data can be extremely dangerous when it falls into the wrong hands, threatening not just individuals but entire democratic systems.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Counterargument Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Respectful Disagreement Phrases:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>"While this perspective has merit..."</li>
+                                <li>"Although supporters of X make valid points..."</li>
+                                <li>"This concern is understandable, but..."</li>
+                                <li>"The evidence suggests a more complex picture..."</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'collaboration-tools') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">🤝 Collaboration Tools</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Discussion Guidelines</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Norms for Respectful Academic Disagreement:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Disagree with ideas, not people</li>
+                                <li>Ask clarifying questions before assuming</li>
+                                <li>Share your reasoning, not just your conclusions</li>
+                                <li>Look for partial agreements and middle ground</li>
+                                <li>Use "I" statements: "I see it differently because..."</li>
+                                <li>Build on others' ideas: "Your point about X makes me think..."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Peer Review Guidelines</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>What to look for in a peer's draft:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Thesis:</strong> Is their position clear? Do you understand what they're arguing?</li>
+                                <li><strong>STEP Framework:</strong> Can you identify all four components in their analysis?</li>
+                                <li><strong>Evidence:</strong> Do they use both readings meaningfully?</li>
+                                <li><strong>Organization:</strong> Can you follow their reasoning from paragraph to paragraph?</li>
+                                <li><strong>Respectful Tone:</strong> Do they engage fairly with opposing views?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Study Group Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Effective study group activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Compare STEP analyses of the same issue</li>
+                                <li>Practice explaining arguments in your own words</li>
+                                <li>Role-play different stakeholder perspectives</li>
+                                <li>Quiz each other on key vocabulary and concepts</li>
+                                <li>Share and discuss thesis statement drafts</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Getting Help When You Need It</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Don't struggle alone! Reach out when:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>You're confused about the readings after two careful attempts</li>
+                                <li>You can't identify a clear thesis for your essay</li>
+                                <li>You're not sure how to integrate STEP into your writing</li>
+                                <li>You feel overwhelmed by the complexity of the issue</li>
+                                <li>You want feedback on your ideas before the final draft</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = 'Close';
+            closeBtn.className = 'btn';
+            closeBtn.style.marginTop = '20px';
+            closeBtn.onclick = () => contentDiv.remove();
+            contentDiv.appendChild(closeBtn);
+            
+            // Add the content to the resources tab
+            const resourcesTab = document.getElementById('resources');
+            resourcesTab.appendChild(contentDiv);
+            
+            // Scroll to the new content
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            margin: 3px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-area {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: 600px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .alert {
+            background: rgba(52, 152, 219, 0.1);
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .alert-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .step-framework {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .step-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .step-letter {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.1);
+        }
+        
+        .input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            margin: 5px 0;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.1);
+        }
+        
+        .week-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .week-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .day-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .content-area {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Unit 4: Argumentative Writing with Ethical Reasoning</h1>
+            <div class="subtitle">Mastering Digital Privacy Debates Through Systematic Analysis</div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">Overview</button>
+            <button class="nav-tab" onclick="showTab('step-framework')">STEP Framework</button>
+            <button class="nav-tab" onclick="showTab('step-practice')">STEP Practice</button>
+            <button class="nav-tab" onclick="showTab('readings')">Readings</button>
+            <button class="nav-tab" onclick="showTab('schedule')">Schedule</button>
+            <button class="nav-tab" onclick="showTab('assessment')">Assessment</button>
+            <button class="nav-tab" onclick="showTab('template')">Planning Template</button>
+            <button class="nav-tab" onclick="showTab('resources')">Resources</button>
+        </div>
+
+        <div class="content-area">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2>Welcome to Unit 4!</h2>
+                
+                <div class="alert">
+                    <span class="alert-icon">💡</span>
+                    <strong>Big Question:</strong> How should society balance digital privacy rights with the benefits of data collection?
+                </div>
+
+                <h3>What You'll Learn</h3>
+                <div class="highlight-box">
+                    <ul>
+                        <li>Understand what makes argumentative writing different from other types</li>
+                        <li>Apply the STEP framework to analyze complex ethical issues</li>
+                        <li>Read and understand opposing arguments about digital privacy</li>
+                        <li>Write your own evidence-based argument on this complex topic</li>
+                        <li>Engage respectfully with classmates who have different viewpoints</li>
+                    </ul>
+                </div>
+
+                <h3>Why This Matters</h3>
+                <div class="highlight-box">
+                    <p><strong>Real-World Connection:</strong> Every day you use apps, social media, and digital services that collect your data. Understanding this debate helps you make informed decisions about your digital life and participate meaningfully in democratic discussions about technology policy.</p>
+                </div>
+
+                <h3>Unit Structure</h3>
+                <div class="resource-grid">
+                    <div class="resource-card" style="cursor: pointer;" onclick="showWeekContent('week7')">
+                        <div class="resource-title">Week 7: Building Tools</div>
+                        <p>Learn argumentative writing basics and the STEP framework for ethical reasoning</p>
+                        <button class="btn" style="margin-top: 10px;">View Week 7 Details</button>
+                    </div>
+                    <div class="resource-card" style="cursor: pointer;" onclick="showWeekContent('week8')">
+                        <div class="resource-title">Week 8: Deep Analysis</div>
+                        <p>Read and analyze two expert arguments about digital privacy and data collection</p>
+                        <button class="btn" style="margin-top: 10px;">View Week 8 Details</button>
+                    </div>
+                    <div class="resource-card" style="cursor: pointer;" onclick="showWeekContent('week9')">
+                        <div class="resource-title">Week 9: Your Argument</div>
+                        <p>Develop and write your own sophisticated position using evidence and ethical reasoning</p>
+                        <button class="btn" style="margin-top: 10px;">View Week 9 Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP Framework Tab -->
+            <div id="step-framework" class="tab-content">
+                <h2>The STEP Framework for Ethical Reasoning</h2>
+                
+                <div class="alert">
+                    <span class="alert-icon">🎯</span>
+                    <strong>What is STEP?</strong> A systematic way to think through complex ethical issues without getting overwhelmed or oversimplifying.
+                </div>
+
+                <div class="step-framework">
+                    <div class="step-card">
+                        <div class="step-letter">S</div>
+                        <div class="step-title">Stakeholders</div>
+                        <p>Who is affected by this decision or policy? Think beyond just "two sides" - who else has a stake in the outcome?</p>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+                            <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>Ask yourself:</strong></p>
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 15px;">
+                                <li>Who benefits? Who is harmed?</li>
+                                <li>Who has power to decide?</li>
+                                <li>Who has no voice in this decision?</li>
+                                <li>What about future generations?</li>
+                            </ul>
+                            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">Remember: Look for indirect effects and "invisible" stakeholders</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-letter">T</div>
+                        <div class="step-title">Trade-offs</div>
+                        <p>What values, benefits, or priorities compete with each other? What do we gain and lose with different choices?</p>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+                            <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>Ask yourself:</strong></p>
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 15px;">
+                                <li>What competing values are at stake?</li>
+                                <li>What are short vs. long-term costs?</li>
+                                <li>Who gains vs. who loses?</li>
+                                <li>What happens if we do nothing?</li>
+                            </ul>
+                            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">Common tensions: Freedom vs. Security, Innovation vs. Caution</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-letter">E</div>
+                        <div class="step-title">Ethical Principles</div>
+                        <p>What moral guidelines apply? Think about fairness, autonomy, responsibility, and doing good vs. avoiding harm.</p>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+                            <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>Ask yourself:</strong></p>
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 15px;">
+                                <li>What would be fair to everyone?</li>
+                                <li>Does this respect people's autonomy?</li>
+                                <li>Who is responsible for outcomes?</li>
+                                <li>Does this maximize good or minimize harm?</li>
+                            </ul>
+                            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">Key principles: Justice, Autonomy, Beneficence, Non-maleficence</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-letter">P</div>
+                        <div class="step-title">Perspectives</div>
+                        <p>How do different cultural, generational, or social viewpoints understand this issue differently?</p>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+                            <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>Ask yourself:</strong></p>
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 15px;">
+                                <li>How might age affect views on this?</li>
+                                <li>What about different cultural backgrounds?</li>
+                                <li>How do economic circumstances matter?</li>
+                                <li>What experiences shape different views?</li>
+                            </ul>
+                            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">Consider: Generational, cultural, economic, and experiential differences</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>STEP in Action: Example</h3>
+                <div class="highlight-box">
+                    <h4>Issue: Should colleges require attendance?</h4>
+                    <ul>
+                        <li><strong>Stakeholders:</strong> Students (traditional & non-traditional), faculty, employers, families paying tuition</li>
+                        <li><strong>Trade-offs:</strong> Flexibility vs. accountability, individual choice vs. institutional standards</li>
+                        <li><strong>Ethical Principles:</strong> Fairness (equal treatment), autonomy (personal choice), responsibility</li>
+                        <li><strong>Perspectives:</strong> Different cultural attitudes toward authority, varying life circumstances</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>From STEP Analysis to Thesis Development</h4>
+                    <p style="margin-bottom: 15px;"><strong>How STEP components work together:</strong></p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Start with Stakeholders:</strong> Who is most affected by your position?</li>
+                        <li><strong>Identify key Trade-offs:</strong> What competing values does your position prioritize?</li>
+                        <li><strong>Apply Ethical Principles:</strong> What moral framework justifies your choice?</li>
+                        <li><strong>Consider Perspectives:</strong> How do different viewpoints challenge or support your position?</li>
+                    </ol>
+                    <p style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>Result:</strong> A nuanced thesis that acknowledges complexity while taking a clear position based on systematic ethical reasoning.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Common STEP Mistakes to Avoid</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Stakeholders:</strong> Only considering obvious groups (missing vulnerable or future stakeholders)</li>
+                        <li><strong>Trade-offs:</strong> Treating it as simple "pros vs. cons" (missing underlying value conflicts)</li>
+                        <li><strong>Ethical Principles:</strong> Applying only one principle (missing the complexity of competing moral claims)</li>
+                        <li><strong>Perspectives:</strong> Stereotyping groups (assuming all people in a category think the same way)</li>
+                    </ul>
+                </div>
+
+                <button class="btn" onclick="showTab('step-practice')">Try STEP Practice Worksheet</button>
+            </div>
+
+            <!-- STEP Practice Tab -->
+            <div id="step-practice" class="tab-content">
+                <h2>STEP Framework Practice Worksheet</h2>
+                
+                <div class="highlight-box">
+                    <h3>Building Skills for Ethical Reasoning</h3>
+                    <p>Practice the STEP framework with a familiar issue before applying it to digital privacy. This worksheet will help you develop systematic thinking skills for complex ethical questions.</p>
+                </div>
+
+                <div class="alert">
+                    <h3>Practice Scenario: Should colleges require attendance?</h3>
+                    <p><strong>Context:</strong> Many colleges are reconsidering their attendance policies. Some argue that mandatory attendance ensures student engagement and success, while others believe college students should have the autonomy to make their own choices about class participation.</p>
+                    <p><strong>Your Task:</strong> Use the STEP framework to analyze this issue thoroughly before taking a position.</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>S - Stakeholders: Who is affected?</h4>
+                    <textarea class="textarea" placeholder="List all the different groups affected by attendance policies. Think beyond just 'students' and 'professors' - who else has a stake in these decisions?"></textarea>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>T - Trade-offs: What values compete?</h4>
+                    <textarea class="textarea" placeholder="Identify the competing values and priorities in attendance policy decisions. What do we gain and lose with different approaches?"></textarea>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>E - Ethical Principles: What moral guidelines apply?</h4>
+                    <textarea class="textarea" placeholder="What ethical principles should guide attendance policy decisions? Consider autonomy, justice, responsibility, and beneficence."></textarea>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>P - Perspectives: How do different viewpoints understand this?</h4>
+                    <textarea class="textarea" placeholder="How might different cultural, generational, or economic backgrounds lead to different views on attendance requirements?"></textarea>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Synthesis and Position Development</h3>
+                    <div style="margin: 20px 0;">
+                        <h4>Based on your STEP analysis, what is your position on college attendance requirements?</h4>
+                        <textarea class="textarea" placeholder="Develop a nuanced position that acknowledges the complexity you've identified. You don't have to choose a simple yes/no - consider middle-ground approaches."></textarea>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <button class="btn" onclick="saveWorksheet()">Save Your Work</button>
+                    <button class="btn" onclick="clearWorksheet()">Start Over</button>
+                </div>
+            </div>
+
+            <!-- Readings Tab -->
+            <div id="readings" class="tab-content">
+                <h2>Required Readings</h2>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">Reading A: "Privacy Matters Because It Empowers Us All"</div>
+                        <p><strong>Author:</strong> Carissa Véliz</p>
+                        <p><strong>Main Argument:</strong> Digital privacy is essential for democracy and individual freedom. Data collection by tech companies threatens the balance of power in society.</p>
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Privacy is about power, not just secrecy</li>
+                            <li>Tech companies sell influence, not just data</li>
+                            <li>Democracy requires privacy protection</li>
+                        </ul>
+                        <button class="btn" onclick="showReadingContent('veliz')">Read Full Article</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Reading B: "Data Saves Lives"</div>
+                        <p><strong>Author:</strong> UK Department of Health and Social Care</p>
+                        <p><strong>Main Argument:</strong> Data collection enables life-saving medical advances, better public health responses, and improved services for everyone.</p>
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>COVID-19 response powered by data sharing</li>
+                            <li>Personalized medicine improves patient outcomes</li>
+                            <li>Population health benefits from data analysis</li>
+                        </ul>
+                        <button class="btn" onclick="showReadingContent('ukhealth')">Read Full Excerpts</button>
+                    </div>
+                </div>
+
+                <h3>Reading Strategies</h3>
+                <div class="highlight-box">
+                    <h4>For DEV ENG III Students:</h4>
+                    <ul>
+                        <li>Use the vocabulary guides before reading</li>
+                        <li>Focus on identifying main arguments vs. supporting examples</li>
+                        <li>Take notes on what surprises you or challenges your thinking</li>
+                        <li>Compare how each author builds their case</li>
+                    </ul>
+                    
+                    <h4>For ENG 101 Students:</h4>
+                    <ul>
+                        <li>Analyze how each author builds credibility</li>
+                        <li>Track the rhetorical strategies used</li>
+                        <li>Identify underlying assumptions in each argument</li>
+                        <li>Evaluate the strength of evidence provided</li>
+                    </ul>
+                </div>
+
+                <div class="alert">
+                    <span class="alert-icon">⏰</span>
+                    <strong>Reading Schedule:</strong> Complete Reading A by Day 22, Reading B by Day 23. Use the discussion forums to ask questions and share insights!
+                </div>
+            </div>
+
+            <!-- Schedule Tab -->
+            <div id="schedule" class="tab-content">
+                <h2>Three-Week Schedule</h2>
+
+                <div class="week-card">
+                    <div class="week-title">Week 7: Building Cognitive Tools</div>
+                    <div class="day-item">
+                        <strong>Day 19:</strong> Introduction to Argumentative Writing
+                        <ul>
+                            <li>Beyond "pick a side" thinking</li>
+                            <li>What makes arguments different from other writing</li>
+                            <li>Setting norms for respectful disagreement</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 20:</strong> STEP Framework Introduction
+                        <ul>
+                            <li>Learn the four components of systematic ethical reasoning</li>
+                            <li>Practice with low-stakes example (college attendance)</li>
+                            <li>Prepare for complex digital privacy readings</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 21:</strong> Reading Preparation
+                        <ul>
+                            <li>Vocabulary and context for digital privacy debate</li>
+                            <li>Different reading strategies for different course levels</li>
+                            <li>Preview the big questions we'll explore</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="week-card">
+                    <div class="week-title">Week 8: Deep Analysis and Perspective Building</div>
+                    <div class="day-item">
+                        <strong>Day 22:</strong> Privacy Rights Argument Analysis
+                        <ul>
+                            <li>Discuss Véliz's "Privacy Matters" argument</li>
+                            <li>Identify main claims and supporting evidence</li>
+                            <li>Practice respectful disagreement in discussions</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 23:</strong> Data Benefits Argument Analysis
+                        <ul>
+                            <li>Examine "Data Saves Lives" perspective</li>
+                            <li>Compare argument strategies and evidence types</li>
+                            <li>Find areas where both authors might be right</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 24:</strong> STEP Framework Deep Application
+                        <ul>
+                            <li>Apply all four STEP components to digital privacy</li>
+                            <li>Map stakeholders and trade-offs systematically</li>
+                            <li>Begin developing your own nuanced position</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="week-card">
+                    <div class="week-title">Week 9: Synthesis and Argument Construction</div>
+                    <div class="day-item">
+                        <strong>Day 25:</strong> Moving Beyond Binary Positions
+                        <ul>
+                            <li>Explore middle-ground approaches</li>
+                            <li>Develop sophisticated thesis statements</li>
+                            <li>Plan argumentative essay structure</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 26:</strong> Essay Drafting Workshop
+                        <ul>
+                            <li>Individual writing time with instructor conferences</li>
+                            <li>Peer collaboration across course levels</li>
+                            <li>Focus on evidence integration and clear reasoning</li>
+                        </ul>
+                    </div>
+                    <div class="day-item">
+                        <strong>Day 27:</strong> Reflection and Transfer
+                        <ul>
+                            <li>Revision workshop with targeted feedback</li>
+                            <li>Reflect on learning and growth</li>
+                            <li>Discuss how to apply STEP to other issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment Tab -->
+            <div id="assessment" class="tab-content">
+                <h2>Assessment Overview</h2>
+
+                <div class="alert">
+                    <h3>Essay Prompt</h3>
+                    <p><strong>"After carefully analyzing both Véliz's argument for digital privacy rights and the 'Data Saves Lives' argument for data collection benefits, develop your own position on how society should balance privacy concerns with the potential benefits of data collection. Your essay should demonstrate sophisticated ethical reasoning using the STEP framework while making a clear, evidence-supported argument for your position."</strong></p>
+                </div>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">Length</div>
+                        <p>750-1000 words</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Sources</div>
+                        <p>Both assigned readings must be engaged meaningfully</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Framework</div>
+                        <p>Must demonstrate application of STEP framework</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Audience</div>
+                        <p>Educated peers who may disagree with your position</p>
+                    </div>
+                </div>
+
+                <h3>Success Criteria</h3>
+                <div class="highlight-box">
+                    <h4>DEV ENG III - Success Focus Areas</h4>
+                    <ul>
+                        <li><strong>Clear Argumentative Thesis:</strong> Takes a definite position while acknowledging complexity</li>
+                        <li><strong>Accurate Source Understanding:</strong> Shows comprehension of both authors' main arguments</li>
+                        <li><strong>STEP Framework Application:</strong> Demonstrates systematic ethical reasoning process</li>
+                        <li><strong>Logical Organization:</strong> Ideas flow clearly from introduction to conclusion</li>
+                        <li><strong>Evidence Integration:</strong> Uses examples and quotes appropriately to support claims</li>
+                        <li><strong>Respectful Engagement:</strong> Maintains civil tone when discussing opposing viewpoints</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>ENG 101 - Advanced Expectations</h4>
+                    <ul>
+                        <li><strong>Sophisticated Thesis Development:</strong> Addresses multiple stakeholder concerns and trade-offs</li>
+                        <li><strong>Advanced Source Analysis:</strong> Critically evaluates authors' reasoning and evidence strategies</li>
+                        <li><strong>Complex Ethical Reasoning:</strong> Demonstrates nuanced application of STEP with cultural considerations</li>
+                        <li><strong>Strategic Organization:</strong> Uses advanced argumentative structures effectively</li>
+                        <li><strong>Synthesis and Integration:</strong> Weaves together insights from multiple perspectives seamlessly</li>
+                        <li><strong>Rhetorical Sophistication:</strong> Adapts argument strategically to audience and purpose</li>
+                    </ul>
+                </div>
+
+                <button class="btn" onclick="showTab('template')">Use Planning Template</button>
+            </div>
+
+            <!-- Planning Template Tab -->
+            <div id="template" class="tab-content">
+                <h2>Essay Planning Template</h2>
+                
+                <div class="highlight-box">
+                    <h3>Planning Your Argumentative Essay</h3>
+                    <p>Use this template to organize your thinking before you start writing. Take time with each section - good planning leads to stronger arguments!</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>Basic Information</h4>
+                    <label><strong>Your Name:</strong></label>
+                    <input type="text" class="input" id="student-name" placeholder="Enter your name">
+                    
+                    <label><strong>Course Level:</strong></label>
+                    <select class="input" id="course-level">
+                        <option value="">Select your course</option>
+                        <option value="dev">DEV ENG III</option>
+                        <option value="101">ENG 101</option>
+                    </select>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>STEP Framework Analysis for Digital Privacy</h4>
+                    <div style="margin: 15px 0;">
+                        <h5>S - Stakeholders: Who is affected?</h5>
+                        <textarea class="textarea" placeholder="List all the different groups of people affected by digital privacy and data collection policies. Think beyond just 'users' and 'companies' - who else has a stake in these decisions?"></textarea>
+                    </div>
+
+                    <div style="margin: 15px 0;">
+                        <h5>T - Trade-offs: What values compete?</h5>
+                        <textarea class="textarea" placeholder="Identify the competing values, benefits, and priorities in the digital privacy debate. What do we gain and lose with different approaches?"></textarea>
+                    </div>
+
+                    <div style="margin: 15px 0;">
+                        <h5>E - Ethical Principles: What moral guidelines apply?</h5>
+                        <textarea class="textarea" placeholder="What ethical principles should guide decisions about digital privacy and data collection?"></textarea>
+                    </div>
+
+                    <div style="margin: 15px 0;">
+                        <h5>P - Perspectives: How do different viewpoints understand this?</h5>
+                        <textarea class="textarea" placeholder="How might different cultural, generational, economic, or social backgrounds lead to different perspectives on privacy?"></textarea>
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>Your Position Development</h4>
+                    <div style="margin: 15px 0;">
+                        <h5>Thesis Statement (Your main argument in 1-2 sentences):</h5>
+                        <textarea class="textarea" placeholder="Write your thesis statement here. A strong thesis for this assignment should take a clear position, acknowledge complexity, and preview your reasoning."></textarea>
+                    </div>
+
+                    <div style="margin: 15px 0;">
+                        <h5>Main Supporting Points:</h5>
+                        <textarea class="textarea" placeholder="List your 2-3 main reasons that support your thesis. Each will become a body paragraph."></textarea>
+                    </div>
+
+                    <div style="margin: 15px 0;">
+                        <h5>Addressing Counterarguments:</h5>
+                        <textarea class="textarea" placeholder="What would someone who disagrees with your position say? How will you respond to their concerns respectfully and thoughtfully?"></textarea>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <button class="btn" onclick="saveTemplate()">Save My Planning Work</button>
+                    <button class="btn" onclick="clearTemplate()">Start Over</button>
+                </div>
+            </div>
+
+            <!-- Resources Tab -->
+            <div id="resources" class="tab-content">
+                <h2>Learning Resources</h2>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">Reading Supports</div>
+                        <p>Tools to help you understand and analyze the assigned readings effectively.</p>
+                        <button class="btn" onclick="showResourceContent('reading-supports')">View Resources</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">STEP Framework Tools</div>
+                        <p>Additional practice materials and guides for mastering ethical reasoning.</p>
+                        <button class="btn" onclick="showResourceContent('step-tools')">View Resources</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Writing Supports</div>
+                        <p>Guides and templates to help you plan, draft, and revise your argumentative essay.</p>
+                        <button class="btn" onclick="showResourceContent('writing-supports')">View Resources</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-title">Collaboration Tools</div>
+                        <p>Resources for peer learning, study groups, and getting help when you need it.</p>
+                        <button class="btn" onclick="showResourceContent('collaboration-tools')">View Resources</button>
+                    </div>
+                </div>
+
+                <h3>Additional Support</h3>
+                <div class="highlight-box">
+                    <h4>Need Extra Help?</h4>
+                    <ul>
+                        <li><strong>Writing Center:</strong> Free tutoring for all drafts and revisions</li>
+                        <li><strong>Library Research Help:</strong> Assistance finding additional sources if needed</li>
+                        <li><strong>ESL Support:</strong> Language-specific help for multilingual learners</li>
+                        <li><strong>Accessibility Services:</strong> Accommodations and alternative formats available</li>
+                    </ul>
+                    
+                    <h4>Want to Go Deeper?</h4>
+                    <ul>
+                        <li>Extended research project options</li>
+                        <li>Connections to current events and policy debates</li>
+                        <li>Transfer applications to other courses</li>
+                        <li>Community engagement opportunities</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Contact Information</h4>
+                    <p><strong>Instructor Email:</strong> [email]<br>
+                    <strong>Office Hours:</strong> [times and location]<br>
+                    <strong>Class Discussion Forum:</strong> [link]<br>
+                    <strong>Emergency Contact:</strong> [information]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function showReadingContent(readingType) {
+            // Remove any existing reading content
+            const existingContent = document.querySelectorAll('.reading-content');
+            existingContent.forEach(content => content.remove());
+            
+            // Create new reading content div
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'reading-content';
+            contentDiv.style.cssText = 'margin-top: 30px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);';
+            
+            if (readingType === 'veliz') {
+                contentDiv.innerHTML = `
+                    <div style="border-bottom: 3px solid #2c3e50; padding-bottom: 20px; margin-bottom: 30px; font-family: Georgia, serif;">
+                        <h1 style="font-size: 2rem; color: #2c3e50; margin-bottom: 10px;">Privacy Matters Because It Empowers Us All</h1>
+                        <div style="color: #666; margin-bottom: 5px;">By Carissa Véliz</div>
+                        <div style="color: #888; font-size: 0.9rem; font-style: italic;">Oxford University • Associate Professor of Philosophy</div>
+                    </div>
+                    <div style="font-family: Georgia, serif; line-height: 1.8;">
+                        <p style="margin-bottom: 20px;">Privacy is not about having something to hide. It's about <strong>having something to protect</strong>: your autonomy, your dignity, your safety, and your power. When we frame privacy as a concern only for those engaged in wrongdoing, we fundamentally misunderstand what's at stake in our increasingly surveilled world.</p>
+                        
+                        <p style="margin-bottom: 20px;">The real question is not whether you have anything to hide, but whether you have anything to lose. And we all do. We all have something to lose when our personal information is collected, analyzed, and used to influence our behavior without our knowledge or meaningful consent.</p>
+                        
+                        <h3 style="color: #2c3e50; margin: 25px 0 15px 0;">Privacy as Power</h3>
+                        
+                        <p style="margin-bottom: 20px;">Privacy is fundamentally about power. When you share your data with tech companies, you're not just giving them information about yourself - you're giving them the tools to influence your decisions, your emotions, and your behavior. <strong>Data is not the new oil; it's the new plutonium</strong> - immensely powerful and potentially dangerous in the wrong hands.</p>
+                        
+                        <p style="margin-bottom: 20px;">Consider what happens when you use "free" services like social media platforms, search engines, or mapping applications. These companies don't just collect your clicks and location data; they build detailed psychological profiles that reveal your fears, desires, political leanings, health concerns, and vulnerabilities.</p>
+                        
+                        <div style="background: #f9f9f9; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; font-style: italic; color: #2c3e50;">
+                            "The surveillance economy doesn't just know what you're doing - it shapes what you're doing. It doesn't just predict your behavior - it modifies it."
+                        </div>
+                        
+                        <h3 style="color: #2c3e50; margin: 25px 0 15px 0;">The Democratic Stakes</h3>
+                        
+                        <p style="margin-bottom: 20px;">Privacy erosion threatens democracy itself. Democratic societies depend on citizens' ability to think independently, to deliberate freely, and to make autonomous choices about their lives and their leaders. But when our digital environments are designed to manipulate our attention, emotions, and decisions, our capacity for democratic participation is fundamentally compromised.</p>
+                        
+                        <p style="margin-bottom: 20px;">The problem isn't just that bad actors might use our data maliciously. The deeper problem is that <strong>surveillance capitalism has made manipulation the business model of the internet</strong>. Platforms profit by capturing and holding our attention, by making us click, scroll, share, and buy.</p>
+                        
+                        <h3 style="color: #2c3e50; margin: 25px 0 15px 0;">Beyond Individual Solutions</h3>
+                        
+                        <p style="margin-bottom: 20px;">Privacy is not just a personal preference or individual responsibility - it's a <strong>collective good that requires collective action</strong>. Just as we don't expect individuals to negotiate their own clean air or safe food, we shouldn't expect people to single-handedly protect themselves from surveillance capitalism.</p>
+                        
+                        <p style="margin-bottom: 20px;">This is why Europe's General Data Protection Regulation (GDPR) and California's Consumer Privacy Act represent important steps forward. These laws recognize that privacy protection requires structural change, not just individual vigilance.</p>
+                        
+                        <div style="background: #f9f9f9; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; font-style: italic; color: #2c3e50;">
+                            "Privacy is the foundation of freedom. Without it, we become not citizens but subjects - subjects of algorithmic control, commercial manipulation, and social surveillance."
+                        </div>
+                        
+                        <p style="margin-bottom: 20px;">Privacy empowers us all - not by hiding us from the world, but by giving us the power to engage with the world on our own terms. That's why privacy matters, and that's why we must fight to protect it.</p>
+                    </div>
+                `;
+            } else if (readingType === 'ukhealth') {
+                contentDiv.innerHTML = `
+                    <div style="border-bottom: 3px solid #0066cc; padding-bottom: 20px; margin-bottom: 30px;">
+                        <h1 style="font-size: 2rem; color: #003366; margin-bottom: 10px;">Data Saves Lives</h1>
+                        <div style="font-size: 1.1rem; color: #0066cc; margin-bottom: 5px;">Reshaping health and social care with data</div>
+                        <div style="color: #666; font-size: 0.9rem;">UK Department of Health and Social Care • June 2021</div>
+                    </div>
+                    <div style="line-height: 1.7;">
+                        <div style="background: #e6f3ff; padding: 15px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem;">
+                            <strong>Note:</strong> These are selected excerpts from a longer government policy document outlining the UK's strategy for using health data to improve outcomes.
+                        </div>
+                        
+                        <p style="margin-bottom: 18px;">Data has never been more important to health and care. The COVID-19 pandemic has demonstrated both the <strong style="color: #003366;">life-saving potential of health data</strong> and the urgent need to harness that potential more effectively.</p>
+                        
+                        <div style="background: linear-gradient(135deg, #e6f3ff 0%, #cce6ff 100%); text-align: center; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                            <div style="font-size: 2rem; font-weight: bold; color: #003366;">41%</div>
+                            <div style="color: #666; font-size: 0.9rem;">reduction in heart attack deaths since 1990, largely due to data-driven research</div>
+                        </div>
+                        
+                        <h3 style="color: #003366; margin: 25px 0 15px 0;">COVID-19: Data in Action</h3>
+                        
+                        <p style="margin-bottom: 18px;">The coronavirus pandemic provides the most dramatic recent example of how data saves lives. The COVID-19 vaccines represent one of the greatest scientific achievements in modern history, developed in record time through unprecedented global data sharing.</p>
+                        
+                        <p style="margin-bottom: 18px;">In the UK, our vaccination program relied on integrated health data systems to identify priority populations, track vaccine uptake, monitor effectiveness, and detect rare adverse events. <strong style="color: #003366;">Without these data capabilities, vaccine rollout would have been slower, less targeted, and potentially less safe</strong>.</p>
+                        
+                        <div style="background: linear-gradient(135deg, #e6f3ff 0%, #cce6ff 100%); text-align: center; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                            <div style="font-size: 2rem; font-weight: bold; color: #003366;">1.7 million</div>
+                            <div style="color: #666; font-size: 0.9rem;">exposure notifications sent by NHS COVID-19 app, potentially preventing thousands of infections</div>
+                        </div>
+                        
+                        <h3 style="color: #003366; margin: 25px 0 15px 0;">Precision Medicine</h3>
+                        
+                        <p style="margin-bottom: 18px;">Large-scale genetic databases have enabled breakthrough treatments for previously incurable diseases. The 100,000 Genomes Project has already led to new diagnoses for rare disease patients and informed cancer treatment decisions for thousands more.</p>
+                        
+                        <div style="background: #f9f9f9; border-left: 4px solid #0066cc; padding: 15px; margin: 15px 0; font-style: italic; color: #003366;">
+                            "For my daughter with cystic fibrosis, genomic data meant the difference between managing symptoms and having an actual treatment that targets the root cause of her condition. Data didn't just improve her quality of life - it gave her a future." - Parent testimonial
+                        </div>
+                        
+                        <h3 style="color: #003366; margin: 25px 0 15px 0;">The Moral Imperative</h3>
+                        
+                        <p style="margin-bottom: 18px;">Beyond technical possibilities lies a fundamental ethical question: <strong style="color: #003366;">Do we have a moral obligation to use health data to save lives and reduce suffering when we can do so safely and effectively?</strong></p>
+                        
+                        <p style="margin-bottom: 18px;">Every day we delay implementing comprehensive, privacy-protected health data systems, we delay medical breakthroughs, perpetuate health inequalities, and miss opportunities to save lives.</p>
+                        
+                        <div style="background: linear-gradient(135deg, #e6f3ff 0%, #cce6ff 100%); text-align: center; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                            <div style="font-size: 2rem; font-weight: bold; color: #003366;">£9.8 billion</div>
+                            <div style="color: #666; font-size: 0.9rem;">annual value to UK economy from health data applications</div>
+                        </div>
+                        
+                        <p style="margin-bottom: 18px;">Data saves lives. Our responsibility is to ensure it does so safely, ethically, and with maximum benefit for all.</p>
+                    </div>
+                `;
+            }
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = 'Close Reading';
+            closeBtn.className = 'btn';
+            closeBtn.style.marginTop = '20px';
+            closeBtn.onclick = () => contentDiv.remove();
+            contentDiv.appendChild(closeBtn);
+            
+            // Add the content to the readings tab
+            const readingsTab = document.getElementById('readings');
+            readingsTab.appendChild(contentDiv);
+            
+            // Scroll to the new content
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showResourceContent(resourceType) {
+            // Remove any existing resource content
+            const existingContent = document.querySelectorAll('.resource-detail-content');
+            existingContent.forEach(content => content.remove());
+            
+            // Create new resource content div
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'resource-detail-content';
+            contentDiv.style.cssText = 'margin-top: 30px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);';
+            
+            if (resourceType === 'reading-supports') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Reading Supports</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Vocabulary Guides</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Digital Privacy Vocabulary:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Surveillance Capitalism:</strong> Business model based on commodifying personal data for advertising revenue</li>
+                                <li><strong>Data Mining:</strong> Process of discovering patterns in large datasets</li>
+                                <li><strong>Algorithmic Bias:</strong> Systematic errors in AI systems that create unfair outcomes</li>
+                                <li><strong>GDPR:</strong> General Data Protection Regulation - European privacy law</li>
+                                <li><strong>Anonymization:</strong> Process of removing personally identifiable information from data</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Annotation Templates</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Use these symbols while reading:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>📍 = Main argument or thesis</li>
+                                <li>🔍 = Key evidence or example</li>
+                                <li>❓ = Something I don't understand</li>
+                                <li>💭 = My thoughts or reactions</li>
+                                <li>⚖️ = Connects to STEP framework</li>
+                                <li>🔗 = Links to other reading</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Reading Comprehension Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Before Reading:</strong> Preview headings, read the conclusion first, identify the publication source</p>
+                            <p><strong>During Reading:</strong> Pause after each section to summarize, ask "What is the author trying to convince me of?"</p>
+                            <p><strong>After Reading:</strong> Write a 3-sentence summary, identify one point you agree with and one you question</p>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'step-tools') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">STEP Framework Tools</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Stakeholder Mapping Template</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Use this framework to identify all affected parties:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Direct Stakeholders:</strong> Who is immediately affected?</li>
+                                <li><strong>Indirect Stakeholders:</strong> Who experiences secondary effects?</li>
+                                <li><strong>Powerful Stakeholders:</strong> Who has decision-making authority?</li>
+                                <li><strong>Vulnerable Stakeholders:</strong> Who has the least power but may be most affected?</li>
+                                <li><strong>Future Stakeholders:</strong> How might this affect future generations?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Trade-offs Analysis Guide</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Common competing values in ethical dilemmas:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Individual Freedom vs. Collective Security</li>
+                                <li>Innovation vs. Caution</li>
+                                <li>Efficiency vs. Equity</li>
+                                <li>Present Benefits vs. Future Risks</li>
+                                <li>Transparency vs. Privacy</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Additional Practice Scenarios</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Apply STEP to these issues:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Should social media platforms fact-check posts?</li>
+                                <li>Should AI be used in hiring decisions?</li>
+                                <li>Should genetic testing be required for insurance?</li>
+                                <li>Should cities use facial recognition for security?</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'writing-supports') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Writing Supports</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Thesis Development Guide</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Strong Argumentative Thesis Formula:</strong></p>
+                            <p style="background: #e3f2fd; padding: 10px; border-radius: 5px; font-family: monospace;">
+                            "While [acknowledge complexity/opposing view], [your position] because [reason 1], [reason 2], and [reason 3]."
+                            </p>
+                            <p><strong>Example:</strong> "While data collection does enable important medical advances, society should prioritize stronger privacy protections because current data practices lack meaningful consent, create power imbalances, and threaten democratic participation."</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Evidence Integration Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>The Quote Sandwich Method:</strong></p>
+                            <ol style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Introduce:</strong> Set up the quote with context</li>
+                                <li><strong>Quote:</strong> Include the exact words (keep it brief)</li>
+                                <li><strong>Explain:</strong> Tell readers why this quote matters to your argument</li>
+                            </ol>
+                            <p><strong>Example:</strong> Véliz argues that privacy is fundamentally about power dynamics. She writes, "Data is not the new oil; it's the new plutonium" (Véliz 2021). This metaphor emphasizes that unlike oil, data can be extremely dangerous when it falls into the wrong hands, threatening not just individuals but entire democratic systems.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Counterargument Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Respectful Disagreement Phrases:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>"While this perspective has merit..."</li>
+                                <li>"Although supporters of X make valid points..."</li>
+                                <li>"This concern is understandable, but..."</li>
+                                <li>"The evidence suggests a more complex picture..."</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else if (resourceType === 'collaboration-tools') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Collaboration Tools</h3>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Discussion Guidelines</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Norms for Respectful Academic Disagreement:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Disagree with ideas, not people</li>
+                                <li>Ask clarifying questions before assuming</li>
+                                <li>Share your reasoning, not just your conclusions</li>
+                                <li>Look for partial agreements and middle ground</li>
+                                <li>Use "I" statements: "I see it differently because..."</li>
+                                <li>Build on others' ideas: "Your point about X makes me think..."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Peer Review Guidelines</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>What to look for in a peer's draft:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li><strong>Thesis:</strong> Is their position clear? Do you understand what they're arguing?</li>
+                                <li><strong>STEP Framework:</strong> Can you identify all four components in their analysis?</li>
+                                <li><strong>Evidence:</strong> Do they use both readings meaningfully?</li>
+                                <li><strong>Organization:</strong> Can you follow their reasoning from paragraph to paragraph?</li>
+                                <li><strong>Respectful Tone:</strong> Do they engage fairly with opposing views?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Study Group Strategies</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Effective study group activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Compare STEP analyses of the same issue</li>
+                                <li>Practice explaining arguments in your own words</li>
+                                <li>Role-play different stakeholder perspectives</li>
+                                <li>Quiz each other on key vocabulary and concepts</li>
+                                <li>Share and discuss thesis statement drafts</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Getting Help When You Need It</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Don't struggle alone! Reach out when:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>You're confused about the readings after two careful attempts</li>
+                                <li>You can't identify a clear thesis for your essay</li>
+                                <li>You're not sure how to integrate STEP into your writing</li>
+                                <li>You feel overwhelmed by the complexity of the issue</li>
+                                <li>You want feedback on your ideas before the final draft</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = 'Close';
+            closeBtn.className = 'btn';
+            closeBtn.style.marginTop = '20px';
+            closeBtn.onclick = () => contentDiv.remove();
+            contentDiv.appendChild(closeBtn);
+            
+            // Add the content to the resources tab
+            const resourcesTab = document.getElementById('resources');
+            resourcesTab.appendChild(contentDiv);
+            
+            // Scroll to the new content
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showWeekContent(weekType) {
+            // Remove any existing week content
+            const existingContent = document.querySelectorAll('.week-detail-content');
+            existingContent.forEach(content => content.remove());
+            
+            // Create new week content div
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'week-detail-content';
+            contentDiv.style.cssText = 'margin-top: 30px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);';
+            
+            if (weekType === 'week7') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Week 7: Building Cognitive Tools</h3>
+                    
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px;">Learning Goals for This Week</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Understand how argumentative writing differs from other modes</li>
+                            <li>Move beyond simple "pro vs. con" thinking</li>
+                            <li>Learn the STEP framework for systematic ethical reasoning</li>
+                            <li>Practice applying STEP to familiar issues</li>
+                            <li>Prepare for complex digital privacy readings</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 19: Introduction to Argumentative Writing</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Beyond "pick a side" thinking</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Explore the difference between argumentative and persuasive writing</li>
+                                <li>Analyze examples of nuanced vs. binary thinking</li>
+                                <li>Establish classroom norms for respectful disagreement</li>
+                                <li>Introduction to the digital privacy debate context</li>
+                            </ul>
+                            <p><strong>Key Question:</strong> How can we disagree respectfully while still taking clear positions?</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 20: STEP Framework Introduction</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Learning the four components of systematic ethical reasoning</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Introduction to S-T-E-P framework</li>
+                                <li>Practice with college attendance policy example</li>
+                                <li>Small group STEP analysis</li>
+                                <li>Reflect on how STEP reveals complexity</li>
+                            </ul>
+                            <p><strong>Homework:</strong> Complete STEP practice worksheet</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 21: Reading Preparation</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Focus:</strong> Preparing for complex digital privacy readings</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Vocabulary and context building for digital privacy debate</li>
+                                <li>Preview the authors and their perspectives</li>
+                                <li>Practice reading strategies for different course levels</li>
+                                <li>Set up annotation systems</li>
+                            </ul>
+                            <p><strong>Homework:</strong> Begin Reading A (Véliz)</p>
+                        </div>
+                    </div>
+                `;
+            } else if (weekType === 'week8') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Week 8: Deep Analysis and Perspective Building</h3>
+                    
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px;">Learning Goals for This Week</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Analyze two sophisticated arguments about digital privacy</li>
+                            <li>Compare different types of evidence and reasoning strategies</li>
+                            <li>Apply STEP framework to the digital privacy debate</li>
+                            <li>Practice respectful disagreement in discussions</li>
+                            <li>Begin developing your own nuanced position</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 22: Privacy Rights Argument Analysis</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Understanding Véliz's "Privacy Matters" argument</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Collaborative reading analysis</li>
+                                <li>Identify main claims and supporting evidence</li>
+                                <li>Discuss the "privacy as power" concept</li>
+                                <li>Practice respectful questioning and disagreement</li>
+                            </ul>
+                            <p><strong>Key Question:</strong> What does Véliz mean by "privacy empowers us all"?</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 23: Data Benefits Argument Analysis</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Examining the "Data Saves Lives" perspective</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Analyze evidence types and persuasion strategies</li>
+                                <li>Compare government vs. academic writing styles</li>
+                                <li>Find areas where both authors might be right</li>
+                                <li>Identify points of genuine disagreement</li>
+                            </ul>
+                            <p><strong>Homework:</strong> Prepare for STEP application</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 24: STEP Framework Deep Application</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Focus:</strong> Applying STEP to the digital privacy debate</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Comprehensive stakeholder mapping</li>
+                                <li>Identify competing values and trade-offs</li>
+                                <li>Explore different cultural perspectives</li>
+                                <li>Begin developing individual positions</li>
+                            </ul>
+                            <p><strong>Homework:</strong> Complete planning template (partially)</p>
+                        </div>
+                    </div>
+                `;
+            } else if (weekType === 'week9') {
+                contentDiv.innerHTML = `
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Week 9: Synthesis and Argument Construction</h3>
+                    
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px;">Learning Goals for This Week</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Develop sophisticated, non-binary thesis statements</li>
+                            <li>Integrate evidence from both readings effectively</li>
+                            <li>Write a clear, well-organized argumentative essay</li>
+                            <li>Reflect on learning and transfer to other contexts</li>
+                            <li>Practice peer collaboration across course levels</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 25: Moving Beyond Binary Positions</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Developing nuanced thesis statements</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Explore middle-ground and conditional approaches</li>
+                                <li>Practice thesis statement development</li>
+                                <li>Plan essay structure and organization</li>
+                                <li>Work on counterargument strategies</li>
+                            </ul>
+                            <p><strong>Key Question:</strong> How can you take a clear position while acknowledging complexity?</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 26: Essay Drafting Workshop</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p><strong>Focus:</strong> Collaborative writing and individual conferences</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Individual writing time with instructor conferences</li>
+                                <li>Peer collaboration across DEV ENG III and ENG 101</li>
+                                <li>Focus on evidence integration and clear reasoning</li>
+                                <li>Practice citation and source integration</li>
+                            </ul>
+                            <p><strong>Homework:</strong> Complete first draft</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 25px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Day 27: Reflection and Transfer</h4>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <p><strong>Focus:</strong> Revision and learning reflection</p>
+                            <p><strong>Activities:</strong></p>
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Targeted revision workshop with peer feedback</li>
+                                <li>Reflect on learning and growth throughout unit</li>
+                                <li>Discuss how to apply STEP to other ethical issues</li>
+                                <li>Plan for transfer to future courses and contexts</li>
+                            </ul>
+                            <p><strong>Final Essay Due:</strong> Submit completed argumentative essay</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = 'Back to Overview';
+            closeBtn.className = 'btn';
+            closeBtn.style.marginTop = '20px';
+            closeBtn.onclick = () => contentDiv.remove();
+            contentDiv.appendChild(closeBtn);
+            
+            // Add the content to the overview tab
+            const overviewTab = document.getElementById('overview');
+            overviewTab.appendChild(contentDiv);
+            
+            // Scroll to the new content
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function saveWorksheet() {
+            try {
+                const worksheetData = {
+                    timestamp: new Date().toISOString(),
+                    textareas: []
+                };
+
+                document.querySelectorAll('#step-practice .textarea').forEach((textarea, index) => {
+                    worksheetData.textareas[index] = textarea.value;
+                });
+
+                localStorage.setItem('stepWorksheetData', JSON.stringify(worksheetData));
+                alert('Worksheet saved successfully!');
+            } catch (e) {
+                alert('Unable to save. Please copy your work to a safe location.');
+            }
+        }
+
+        function clearWorksheet() {
+            if (confirm('Are you sure you want to clear all your worksheet work?')) {
+                document.querySelectorAll('#step-practice .textarea').forEach(textarea => {
+                    textarea.value = '';
+                });
+                try {
+                    localStorage.removeItem('stepWorksheetData');
+                } catch (e) {
+                    console.log('Could not clear localStorage');
+                }
+                alert('Worksheet cleared!');
+            }
+        }
+
+        function saveTemplate() {
+            try {
+                const templateData = {
+                    timestamp: new Date().toISOString(),
+                    studentName: document.getElementById('student-name').value,
+                    courseLevel: document.getElementById('course-level').value,
+                    textareas: []
+                };
+
+                document.querySelectorAll('#template .textarea').forEach((textarea, index) => {
+                    templateData.textareas[index] = textarea.value;
+                });
+
+                localStorage.setItem('essayTemplateData', JSON.stringify(templateData));
+                alert('Planning template saved successfully!');
+            } catch (e) {
+                alert('Unable to save. Please copy your work to a safe location.');
+            }
+        }
+
+        function clearTemplate() {
+            if (confirm('Are you sure you want to clear all your planning work?')) {
+                document.querySelectorAll('#template .textarea').forEach(textarea => textarea.value = '');
+                document.getElementById('student-name').value = '';
+                document.getElementById('course-level').value = '';
+                localStorage.removeItem('essayTemplateData');
+                alert('Template cleared!');
+            }
+        }
+
+        // Load saved data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load worksheet data
+            try {
+                const worksheetData = localStorage.getItem('stepWorksheetData');
+                if (worksheetData) {
+                    const data = JSON.parse(worksheetData);
+                    document.querySelectorAll('#step-practice .textarea').forEach((textarea, index) => {
+                        if (data.textareas && data.textareas[index]) {
+                            textarea.value = data.textareas[index];
+                        }
+                    });
+                }
+            } catch (e) {
+                console.log('Could not load worksheet data');
+            }
+
+            // Load template data
+            try {
+                const templateData = localStorage.getItem('essayTemplateData');
+                if (templateData) {
+                    const data = JSON.parse(templateData);
+                    if (data.studentName) document.getElementById('student-name').value = data.studentName;
+                    if (data.courseLevel) document.getElementById('course-level').value = data.courseLevel;
+                    document.querySelectorAll('#template .textarea').forEach((textarea, index) => {
+                        if (data.textareas && data.textareas[index]) {
+                            textarea.value = data.textareas[index];
+                        }
+                    });
+                }
+            } catch (e) {
+                console.log('Could not load template data');
+            }
+        });
+    </script>
+</body>
+</html>
